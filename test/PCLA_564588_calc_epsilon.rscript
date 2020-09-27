@@ -1,0 +1,6 @@
+library ("dbscan")
+matrix <- read.table(file="PCLA_564588_dist_matrix.txt",header=TRUE,sep="\t")
+dist_matrix <- as.dist(matrix)
+dist_matrix <- as.dist(matrix)
+knndist <- dbscan::kNNdist(dist_matrix, 6, bucketSize=1, splitRule="SUGGEST")
+write.table(knndist, sep="\t", row.names=TRUE)
